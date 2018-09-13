@@ -1,0 +1,29 @@
+.wp-pagenavi {
+    text-align: center;
+    margin: 2.5rem auto;
+    clear: both;
+    @include mq(md) {
+      margin: 5rem auto;
+    }
+
+    span.current {
+      font-weight: bold;
+      color: #fff;
+      background: colors(theme,olive);
+      border: 1px solid colors(theme,olive);
+    }
+
+    a, span {
+      text-decoration: none;
+      border: 1px solid #aeaeae;
+      border-radius: 5px;
+      padding: 5px 12px;
+      margin: 5px;
+      color: #838383;
+      @include mq(md-down) {
+        padding: 5px 2.4vw;
+        margin: 5px 0.7vw;
+        font-size: 3.6vw;
+      }
+    }
+}

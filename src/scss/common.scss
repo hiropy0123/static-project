@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// すべてのページで共通のスタイルを読み込みます
+@import "foundation/variable/*";
+@import "foundation/function/*";
+@import "foundation/mixin/*";
+@import "foundation/vendors/*";
+@import "foundation/vendors-extension/*";
+@import "foundation/base/_base";
+
+@import "layout/_header";
+@import "layout/_header-navi";
+@import "layout/_main";
+@import "layout/_footer";
+
+@import "object/component/*";
+
+@import "object/project/*";
+@import "object/utility/*";
+@import "object/plugins/*";
+

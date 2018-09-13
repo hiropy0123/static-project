@@ -1,0 +1,256 @@
+/**
+ * #Base
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 15px;
+    line-height: my-strip-unit(my-margins());
+    /* iOSとAndroidでのリンクをタップ時のハイライトをリセットする。 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    @include mq(md) {
+        font-size: 16px;
+    }
+}
+
+body {
+    color: colors(text);
+    font-family: $_font-family-sans-serif;
+    font-weight: 400;
+    background-color: colors(bg);
+    /* アンチエイリアスを指定する */
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    /* メトリクスカーニングを指定する */
+    font-kerning: normal;
+    @media (max-width: 1199px) {
+        overflow-x: scroll;
+    }
+
+}
+.sp-only {
+    display: none !important;
+}
+
+html, body {
+    min-width: 1200px;
+}
+
+/* 日本語にitalicは使用されないためリセットする */
+i,
+cite,
+em,
+address,
+dfn {
+    font-style: normal;
+}
+
+p {
+    font-feature-settings: 'palt';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+a {
+    // color: colors(link);
+    color: currentColor;
+    text-decoration: none;
+    &:visited {
+        color: colors(link, visited);
+    }
+    &:hover,
+    &:focus {
+        // color: colors(link, hover);
+        color: currentColor;
+        text-decoration: none;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* マージンを持たないブロックとする。 */
+figure {
+    margin: 0;
+}
+
+/* `padding-strat: 40px;`の相対値 */
+ul, ol {
+  padding: 0;
+  margin: 0;
+}
+
+/* ネストされたリストのマージンをリセットする */
+li {
+    > ul,
+    > ol {
+        margin-bottom: 0;
+    }
+}
+
+dd {
+    margin-left: 0;
+}
+
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}
+
+/**
+ * <blockquote cite="#">
+ *     <p><small></small></p>
+ *     <footer>
+ *         <cite><a href="#"></a></cite>
+ *     </footer>
+ * </blockquote>
+ */
+blockquote {
+    margin: my-margins() 0 my-margins() 0;
+    padding-left: my-paddings();
+    border-left: 1px solid colors(text, light);
+    color: colors(text, light);
+    & > :first-child {
+        margin-top: 0;
+    }
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* `<cite>`の先頭にemダッシュが付く */
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: my-paddings();
+    background-color: colors(bg);
+}
+
+legend {
+    padding: 0 my-paddings(small);
+    background-color: colors(bg);
+}
+
+label {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"] {
+    padding-left: my-paddings(small);
+    margin: 5px 0.5rem;
+    max-width: 20rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 8rem;
+    padding: 0.5rem 0.5rem;
+    vertical-align: top;
+    resize: vertical;
+}
+
+optgroup {
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**
+ * プレイスホルダーのcolorを無効化してopacityでコントラストを抑える
+ * http://hail2u.net/blog/webdesign/placeholder-normalization.html
+ */
+:-ms-input-placeholder {
+    opacity: .3;
+    color: inherit;
+}
+
+::-webkit-input-placeholder {
+    opacity: .3;
+    color: inherit;
+}
+
+// :placeholder-shown {
+//   opacity: .54;
+// }
+
+code,
+kbd,
+pre,
+samp {
+    font-size: 1rem;
+}
+
+code,
+pre {
+    font-family: Menlo, Consolas, Courier, monospace;
+}
+
+kbd {
+    /* ユーザーに入力を促す要素 */
+    font-family: inherit;
+    > kbd {
+        /* キーボードのキーを示す要素に変化するためボーダーで囲われます */
+        display: inline-block;
+        margin-left: 3px;
+        margin-right: 3px;
+        padding: 3px 6px;
+        font-size: 0.75rem;
+        line-height: 1;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: $my-base-round;
+    }
+}
+
+/**
+ * Vertical Rhythmを指定しているクラスセレクタをまとめて指定します。
+ */
+h1, h2, h3, h4, h5, h6,
+p,
+ul, ol, dl,
+table,
+pre,
+address {
+    margin-top: 0;
+    margin-bottom: my-margins();
+}
+
+p:last-of-type {
+  margin-bottom: 0;
+}

@@ -1,0 +1,33 @@
+// .sp-only {
+//   display: none;
+//   @include mq(md-down) {
+//     display: block;
+//   }
+//   // @media screen and ( max-width: 767px ) {
+//   //   display: block;
+//   // }
+// }
+
+// .pc-only {
+//   display: none;
+//   @include mq(md) {
+//     display: block;
+//   }
+//   // @media screen and ( min-width: 768px ) {
+//   //   display: block;
+//   // }
+// }
+
+.pc-only-flex {
+  display: none;
+  @include mq(md) {
+    display: flex;
+  }
+}
+
+.pc-only-inline {
+  display: none;
+  @include mq(md) {
+    display: inline-block;
+  }
+}
